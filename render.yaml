@@ -1,12 +1,11 @@
-services:
-  - type: web
-    name: ren-gateway
-    runtime: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
-    envVars:
-      - key: ADMIN_PASSWORD
-        value: admin
-      - key: SECRET_KEY
-        generateValue: true
+app:
+  name: ren-gateway
+  region: fr-pari1
+build:
+  command: pip install -r requirements.txt
+run:
+  command: python main.py
+env:
+  ADMIN_PASSWORD: admin
+  SECRET_KEY:
+    generate: true
